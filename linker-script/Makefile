@@ -3,8 +3,8 @@
 CFILES := main.c syscall_1.c
 PROG := main
 MAP := $(PROG).map
-CFLAGS := -Wall -Wextra -g
-LDFLAGS := -T linker.ld -Wl,-Map,$(MAP)
+CFLAGS := -Wall -Wextra -g -ffunction-sections
+LDFLAGS := -T linker.ld -Wl,-Map,$(MAP) -v
 ########################
 
 CC := gcc
@@ -15,6 +15,7 @@ DEPFILES := $(CFILES:.c=.d)
 $(PROG) : $(OBJFILES)
 	$(LINK.o) -o $@ $^
 
+.PHONY : clean
 clean :
 	rm -f $(PROG) $(OBJFILES) $(DEPFILES) $(MAP)
 

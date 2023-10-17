@@ -63,10 +63,12 @@ SECTIONS
     *(.gnu.warning)
     EXCLUDE_FILE(*syscall_1.o) *(.text .text.*)
   }
+  . = ALIGN(CONSTANT (MAXPAGESIZE));
   .storage_section :
   {
-    *syscall_1.o (.text .text.*);
+    KEEP(*(.text.syscall_1_write));
   }
+  . = ALIGN(CONSTANT (MAXPAGESIZE));
   .fini           :
   {
     KEEP (*(SORT_NONE(.fini)))
