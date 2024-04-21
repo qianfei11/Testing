@@ -69,6 +69,16 @@ SECTIONS
     KEEP(*(.text.syscall_1_write));
   }
   . = ALIGN(CONSTANT (MAXPAGESIZE));
+  .storage_section2 :
+  {
+    KEEP(*(.text.syscall_1_write));
+  }
+  . = ALIGN(CONSTANT (MAXPAGESIZE));
+  .storage_section3 :
+  {
+    KEEP(*(.text.syscall_1_write));
+  }
+  . = ALIGN(CONSTANT (MAXPAGESIZE));
   .fini           :
   {
     KEEP (*(SORT_NONE(.fini)))
