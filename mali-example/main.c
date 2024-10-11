@@ -45,5 +45,8 @@ int main(int argc, char *argv[]) {
     void *region = SYSCHK(mmap(NULL, 0x1000, 0, MAP_SHARED, mali_fd, BASE_MEM_MAP_TRACKING_HANDLE));
     printf("Region: %p\n", region);
 
+    // Close Device
+    close(mali_fd);
+
     exit(0);
 }
